@@ -26,8 +26,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseCors("AllowLocalhost5173");
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
+app.UseStaticFiles();
+
+app.UseDefaultFiles();
 app.MapControllers();
+app.MapFallbackToFile("index.html");
 app.Run();

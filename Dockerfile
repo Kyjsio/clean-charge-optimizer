@@ -37,8 +37,8 @@ WORKDIR /app
 # Kopiujemy zbudowany backend
 COPY --from=server-build /app/publish .
 
-# Kopiujemy zbudowany frontend do folderu wwwroot
-COPY --from=client-build /app/client/dist ./wwwroot
+# Dodajemy ukoœnik po 'dist/', ¿eby skopiowaæ ZAWARTOŒÆ, a nie folder
+COPY --from=client-build /app/client/dist/ ./wwwroot/
 
 EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
