@@ -1,0 +1,14 @@
+# C# / .NET
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Frontend / Node
+node_modules/
+dist/
+build/
+.env
+.DS_Store

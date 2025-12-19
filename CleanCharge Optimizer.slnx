@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/CleanCharge Optimizer/">
+    <Project Path="CleanCharge Optimizer/CleanCharge_Backend.csproj" />
+    <Project Path="CleanCharge Optimizer/CleanCharge_Tests/CleanCharge_Tests.csproj" />
+  </Folder>
+</Solution>

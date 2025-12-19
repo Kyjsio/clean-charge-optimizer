@@ -1,0 +1,6 @@
+@CleanCharge_Optimizer_HostAddress = http://localhost:5008
+
+GET {{CleanCharge_Optimizer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
