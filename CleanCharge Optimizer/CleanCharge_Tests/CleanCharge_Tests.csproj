@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanCharge Optimizer\CleanCharge_Backend.csproj" />
     <ProjectReference Include="..\CleanCharge_Backend.csproj" />
   </ItemGroup>
 

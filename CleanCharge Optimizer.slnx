@@ -3,4 +3,8 @@
     <Project Path="CleanCharge Optimizer/CleanCharge_Backend.csproj" />
     <Project Path="CleanCharge Optimizer/CleanCharge_Tests/CleanCharge_Tests.csproj" />
   </Folder>
+  <Project Path="Frontend/frontend/frontend.esproj">
+    <Build />
+    <Deploy />
+  </Project>
 </Solution>
