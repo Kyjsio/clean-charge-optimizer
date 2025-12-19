@@ -17,8 +17,9 @@ namespace CleanCharge_Optimizer.Service
         public async Task<List<GenerationData>> DownloadDataAsync(int days)
         {
             DateTime from = DateTime.UtcNow.Date;
-            Console.WriteLine($"Downloading data from {from} to {from.AddDays(days)}");
             DateTime to = from.AddDays(days);
+
+            //Console.WriteLine($"Downloading data from {from} to {from.AddDays(days)}");
 
             string fromStr = from.ToString("yyyy-MM-ddTHH:mmZ");
             string toStr = to.ToString("yyyy-MM-ddTHH:mmZ");
@@ -35,7 +36,9 @@ namespace CleanCharge_Optimizer.Service
             };
 
             var apiResponse = JsonSerializer.Deserialize<CarbonResponse>(json, options);
-            Console.WriteLine(json);
+
+            //Console.WriteLine(json);
+
             return apiResponse.Data;
         }
     }

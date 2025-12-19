@@ -38,14 +38,13 @@ function ChargingWindow() {
                         onChange={(e) => setHours(e.target.value)}
                     />
                 <button type="submit" className="btn btn-primary">
-                    Submit
+                    Send
                 </button>
             </form>
             <div>
                 {data.map((dayItem, index) => ( 
                     <div key={index} style={{ marginBottom: '50px' }}>
                         <h3>Best Charging Window for {hours} hours</h3>
-                        {}
                         <h3>Start {new Date(dayItem.startTime).toUTCString()}  to {new Date(dayItem.endTime).toUTCString()}</h3>
                         <h3>Average Clean Enegry in this time:  {dayItem.averageCleanEnergyPercent}%</h3>
                         <hr />

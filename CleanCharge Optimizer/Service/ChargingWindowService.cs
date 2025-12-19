@@ -23,10 +23,13 @@ namespace CleanCharge_Optimizer.Service
             var data = await _downloadService.DownloadDataAsync(3);
 
             var futureData = data.Where(x => x.From >= DateTime.UtcNow).ToList();
-            //Console.WriteLine($"Future data points available: {futureData.Count}");
+
+            Console.WriteLine($"Future data points available: {futureData.Count}");
+
             int slots = chargingHours * 2;
             ChargingWindowDto bestWindow = null;
             decimal maxCleanEnergyAvg = 0;
+
             for (int i = 0; i <= futureData.Count - slots; i++)
             {
                

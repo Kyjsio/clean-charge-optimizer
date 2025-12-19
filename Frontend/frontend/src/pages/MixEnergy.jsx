@@ -21,12 +21,10 @@ function MixEnergy() {
     const Colors = ['#03fca1', '#03a9fc', '#03ebfc', '#7ffc03', '#0384fc', '#03fcdb', '#03c6fc', '#037ffc','#0313fc'];
     return (
         <div className='container-fluid mt-5 min-vh-100'>
-            <h1>Charging Window Page</h1>
+            <h1>Clean Energy</h1>
             {data.map((dayItem,) => (
                 <div className="row" key={dayItem.date}>
                     <div className="col-sm" style={{ marginBottom: '50px' }}>
-               
-                       
                             <PieChart width={500} height={500}>
                                 <Pie
                                     data={dayItem.averageFuelMix}
@@ -43,18 +41,13 @@ function MixEnergy() {
                                 </Pie>
                                 <Tooltip />
                              </PieChart>
-                    
                     </div>
                     <div className="col-sm">
-                        <h2>Data: {dayItem.date}</h2>
-                        <h3>Czysta Energia: {dayItem.averageCleanEnergyPercent}%</h3>
+                        <h2>Date: {dayItem.date}</h2>
+                        <h3>Clean Energy {dayItem.averageCleanEnergyPercent}%</h3>
                     </div>
-             
-                    
-              
                 </div>
             ))}
-            
         </div>
     );
 }

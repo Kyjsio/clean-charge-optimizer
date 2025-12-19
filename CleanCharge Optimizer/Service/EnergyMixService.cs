@@ -19,8 +19,8 @@ namespace CleanCharge_Optimizer.Service
             var cutoffDate = DateTime.UtcNow.Date;
 
             var result = data
-                .Where(d => d.From.ToUniversalTime().Date >= cutoffDate)
-                .GroupBy(d => d.From.ToUniversalTime().Date)
+                .Where(d => d.From.Date >= cutoffDate)
+                .GroupBy(d => d.From.Date)
                 .Select(dayGroup => new DailyEnergyMix
                 {
                     Date = dayGroup.Key.ToString("yyyy-MM-dd"),
