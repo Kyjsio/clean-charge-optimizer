@@ -1,6 +1,6 @@
 ﻿using CleanCharge_Optimizer.Service;
 using Microsoft.AspNetCore.Mvc;
-
+using CleanCharge_Optimizer.Exceptions;
 namespace CleanCharge_Optimizer.Controllers
 {
     [ApiController]
@@ -17,10 +17,25 @@ namespace CleanCharge_Optimizer.Controllers
         [HttpGet("chargingwindow/{ChargingTime}")]
         public async Task<IActionResult> GetChargingWindow(int ChargingTime)
         {
-            var result = await _chargingwindowservice.GetChargingWindow(ChargingTime);
-
-            return Ok(result);
+            try
+            {
+                var result = await _chargingwindowservice.GetChargingWindow(ChargingTime);
+                return Ok(result);
+            }
+            catch (InvalidChargingParametersException ex)
+            {
+                return BadRequest(new { message = ex.Message }); 
+            }
+            catch (InsufficientDataException ex)
+            {
+                return UnprocessableEntity(new { message = ex.Message }); 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An internal server error occurred." });
+            }
         }
+        
 
 
         [HttpGet("mixFuel")]
