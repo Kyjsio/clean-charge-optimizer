@@ -1,7 +1,7 @@
 import axios from 'axios';
-//const UrlBase = 'http://localhost:5008/api';
+const UrlBase = 'http://localhost:5008/api';
 
-const UrlBase = '/api';
+//const UrlBase = '/api';
 
 export const api =
 {

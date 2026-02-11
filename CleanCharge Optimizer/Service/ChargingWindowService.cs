@@ -1,4 +1,5 @@
-﻿using CleanCharge_Optimizer.DTOs;
+﻿using CleanCharge_Optimizer.Enum;
+using CleanCharge_Optimizer.DTOs;
 
 namespace CleanCharge_Optimizer.Service
 {
@@ -6,12 +7,15 @@ namespace CleanCharge_Optimizer.Service
     {
         private readonly DownloadDataService _downloadService;
 
-        private readonly string[] cleanFuels = {"biomass", "nuclear", "hydro", "wind", "solar"};
+        private readonly HashSet<string> _cleanFuelNames;
 
 
         public ChargingWindowService(HttpClient httpClient)
         {
             _downloadService = new DownloadDataService(httpClient);
+            _cleanFuelNames = System.Enum.GetNames(typeof(CleanEnergySource))
+                             .Select(name => name.ToLower())
+                             .ToHashSet();
         }
         public async Task<List<ChargingWindowDto>> GetChargingWindow(int chargingHours)
         {
@@ -39,7 +43,7 @@ namespace CleanCharge_Optimizer.Service
                 {
                     var section = futureData[i + j];
                     var cleanInSection = section.GenerationMix
-                        .Where(m => cleanFuels.Contains(m.Fuel))
+                        .Where(m => _cleanFuelNames.Contains(m.Fuel))
                         .Sum(m => m.Perc);
 
                     currentWindowSum += cleanInSection;
