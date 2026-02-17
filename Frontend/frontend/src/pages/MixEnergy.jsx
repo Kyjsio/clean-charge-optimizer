@@ -9,8 +9,8 @@ function MixEnergy() {
         try {
             const response = await api.CleanEnergy.mixFuel();
             setData(response);
-            console.log(response);
-            console.log(data);
+            //console.log(response);
+            //console.log(data);
         }
         catch (error) {
             console.error('Error fetching mix energy data:', error);
